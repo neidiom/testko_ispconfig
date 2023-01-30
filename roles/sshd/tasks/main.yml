@@ -1,0 +1,39 @@
+---
+- name: "SSHD: Creating the the SSH main conf file"
+  become: yes
+  template:
+    src: templates/sshd_config
+    dest: "/etc/ssh/sshd_config"
+    owner: root
+    group: root
+    mode: 0644
+  when: ansible_distribution == 'Debian' and ansible_distribution_release == 'bullseye'
+  notify:
+    - Test SSHD
+    - Restart SSHD
+
+- name: "SSHD: Creatingthe the KeepAlive conf file"
+  become: yes
+  template:
+    src: templates/keep_alive.conf
+    dest: "/etc/ssh/sshd_config.d/keep_alive.conf"
+    owner: root
+    group: root
+    mode: 0644
+  when: ansible_distribution == 'Debian' and ansible_distribution_release == 'bullseye'
+  notify:
+    - Test SSHD
+    - Restart SSHD
+
+- name: "SSHD: Creatingthe the port conf file"
+  become: yes
+  template:
+    src: templates/port.conf
+    dest: "/etc/ssh/sshd_config.d/port.conf"
+    owner: root
+    group: root
+    mode: 0644
+  when: ansible_distribution == 'Debian' and ansible_distribution_release == 'bullseye'
+  notify:
+    - Test SSHD
+    - Restart SSHD

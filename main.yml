@@ -1,0 +1,6 @@
+---
+- hosts: all
+  roles:
+    - role: './../roles/autoinstall'
+      tags:
+        - ssh
