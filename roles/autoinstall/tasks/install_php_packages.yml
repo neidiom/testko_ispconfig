@@ -1,0 +1,39 @@
+---
+  - name: "Install packages"
+    apt:
+      name:
+        - apt-transport-https
+        - lsb-release
+        - ca-certificates
+      update_cache: yes
+      state: latest
+    when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
+
+  - name: Install PHP packages
+    apt:
+      name: "{{ item }}"
+      update_cache: yes
+      state: latest
+    when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
+    loop: "{{ packages_list }}"
+    vars:
+      packages_list:
+        - php
+        - php-cgi
+        - php-cli
+        - php-common
+        - php-curl
+        - php-fpm
+        - php-gd
+        - php-imap
+        - php-intl
+        - php-mbstring
+        - php-mysql
+        - php-opcache
+        - php-pspell
+        - php-soap
+        - php-sqlite3
+        - php-tidy
+        - php-xmlrpc
+        - php-xsl
+        - php-zip

@@ -1,0 +1,14 @@
+---
+  - apt:
+      autoclean: yes
+
+  - name: update apt cache
+    apt:
+      update_cache: yes
+
+  - name: Upgrade System
+    apt:
+      upgrade: dist
+      update_cache: no
+    register: upgrade_system
+    when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
