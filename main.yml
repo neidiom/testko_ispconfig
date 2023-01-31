@@ -1,9 +1,9 @@
 ---
 - hosts: all
   roles:
-    - role: 'lukasic.mariadb'
-      vars:
-        mariadb_root_passwd: "12345678"
+    # - role: 'lukasic.mariadb'
+    #   vars:
+    #     mariadb_root_passwd: "12345678"
     - role: './../roles/autoinstall'
       vars:
         install_and_upgrade_packages: true
