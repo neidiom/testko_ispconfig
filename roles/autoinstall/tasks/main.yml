@@ -7,4 +7,6 @@
     - import_tasks: install_php_packages.yml
       when: install_php_packages is true
 
+
+- import_tasks: mariadb_configuration.yml
 - import_tasks: autoinstall.yml

@@ -8,6 +8,7 @@
   vars:
     packages:
       - build-essential
+      - nginx
       - mariadb-client
       - mariadb-server
       - python-pip
