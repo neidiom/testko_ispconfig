@@ -1,0 +1,22 @@
+---
+  - name: Download and unpack ispconfig
+    unarchive:
+      src: https://ispconfig.org/downloads/ISPConfig-{{ ispconfig_version }}.tar.gz
+      dest: "/tmp/"
+      remote_src: yes
+
+  - name: resolve autoinstall template on remote host
+    template:
+      src: "{{ role_path }}/templates/autoupdate.ini.j2"
+      dest: /tmp/ispconfig3_install/install/autoupdate.ini
+
+  - name: check if ISPConfig is already installed
+    stat:
+      path: /usr/local/ispconfig
+    register: ispconfig_installed
+
+  - name: Start ISPConfig Update
+    command: "php -q update.php --autoinstall=autoupdate.ini"
+    args:
+      chdir: /tmp/ispconfig3_install/install/
+    when: ispconfig_installed.stat.exists

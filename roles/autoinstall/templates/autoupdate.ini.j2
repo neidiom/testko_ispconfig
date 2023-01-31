@@ -1,0 +1,24 @@
+[update]
+do_backup=yes
+mysql_root_password=
+mysql_master_hostname=
+mysql_master_root_user=
+mysql_master_root_password=
+mysql_master_database=
+reconfigure_permissions_in_master_database=no
+reconfigure_services=yes
+ispconfig_port=8888
+create_new_ispconfig_ssl_cert=no
+reconfigure_crontab=yes
+ignore_hostname_dns=n
+ispconfig_postfix_ssl_symlink=n
+ispconfig_pureftpd_ssl_symlink=n
+
+; These are for service-detection (defaulting to old behaviour where alle changes were automatically accepted)
+svc_detect_change_mail_server=yes
+svc_detect_change_web_server=yes
+svc_detect_change_dns_server=yes
+svc_detect_change_xmpp_server=yes
+svc_detect_change_firewall_server=yes
+svc_detect_change_vserver_server=yes
+svc_detect_change_db_server=yes
