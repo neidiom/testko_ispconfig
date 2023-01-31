@@ -1,7 +1,7 @@
 ---
 install_and_upgrade_packages: true
 upgrade_packages: true
-
+install_php_packages: true
 
 
 ispconfig_version: '3.2.9'
